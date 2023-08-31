@@ -1,13 +1,15 @@
 import time
+import numpy as np
 
 # Constants
 CALIBRATE = 0
-MOVE = 1
+MOVE  = 1
 FRAME = 2
-UP = 0
-DOWN = 1
+UP    = 0
+DOWN  = 1
 NOCALIBRATION = 0
-CALIBRATION = 1
+CALIBRATION   = 1
+FRAME_CONFIG  = '101101'
 
 # Globals
 arduino = None
@@ -33,10 +35,60 @@ def init_frames(num_frames):
     for i in range(numFrames):
         frame_pos.append(-1)
 
+def config_frames(threading_matrix):
+    frame_config     = []
+    #Match Threading to FrameConfig
+    for i in range(numFrames):
+        temp_frame = []
+        for j in range(numMotors):
+            if threading_matrix[i][j] == 1:
+                temp_frame.append(j)
+        frame_config.append(temp_frame)
+   
+    print("Frame Config = ", frame_config)
+
+    #Transmit Singular Frame
+    for x in range(len(frame_config)):
+        motor_list_string = ""
+        frame_num         = str("{:02d}".format(x))
+        motor_list        = frame_config[x]
+        motor_list_string += frame_num
+
+        #print("Frame Number = ", frame_num)
+        for y in motor_list:
+            motor_list_string += str("{:02d}".format(y))
+        motor_list_string += '\r'
+        #print("Motor List w/ Frame Num = ", motor_list_string)
+
+        #Sending Frame Config Command & Data
+        write_read_frameConfig(motor_list_string)
+        time.sleep(0.1)
+
+def write_read_frameConfig(motor_list_string):
+    frame_config_msg = "722"
+    data = ""
+    #Sending Frame Config Command
+    print("Sending Value: ", bytes(frame_config_msg+"\n", 'utf-8'))
+    arduino.write(bytes(frame_config_msg+"\n", 'utf-8'))
+
+    #Sending Frame Config
+    print("Sending Value: ", bytes(motor_list_string, 'utf-8'))
+    arduino.write(bytes(motor_list_string+",", 'utf-8'))
+
+    time.sleep(0.1)
+
+    #Receiving
+    print("Waiting w/ = ", arduino.in_waiting)
+    print("data =")
+    while arduino.in_waiting:
+        data += str(arduino.readline().decode())
+
+    print(data)
+
 def write_read(x):
     print("sent: " + x)
     arduino.write(bytes(x+"\n", 'utf-8'))
-    time.sleep(0.1)
+    #time.sleep(0.1)
     data = ""
     while arduino.in_waiting:
         data += str(arduino.readline()) + "\n"

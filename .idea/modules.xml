@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RoboLoom-GUI.iml" filepath="$PROJECT_DIR$/.idea/RoboLoom-GUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SPEERLoom-GUI.iml" filepath="$PROJECT_DIR$/.idea/SPEERLoom-GUI.iml" />
     </modules>
   </component>
 </project>
