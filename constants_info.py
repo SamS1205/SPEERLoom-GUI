@@ -143,12 +143,15 @@ mathMode_instruct="Let's get ready to explore the math behind our weaving struct
 \nobserve their effecct on th final woven pattern.\
 \n_________________________________________________________"
 
-mathMode_instruct_2="In math mode, practice matrix multiplication by configuring the matrices that are multiplied together, \
-\nreferred to as the factors or factor matrices. Next, calculate the result of the multiplication operation and configure the\
-\nresultant or Product (P) matrix. Finally, check your answer with button located in the top right corner!\
-\nDo not worry if you compute the wrong answer! The system will highlight the incorrect positions in the matrix for you to focus in on.\n"
+mathMode_instruct_2="\
+\n1. In math mode, practice matrix multiplication by configuring the matrices that are multiplied together, \
+\n      referred to as the factors or factor matrices.\
+\n2. Next, calculate the result of the multiplication operation and configure the resultant or Product (P) matrix.\
+\n3. Finally, check your answer with button located in the top right corner!"
 
-mathMode_instruct_3="\nThe diagram above highlights the overall matrix multiplication between the Treadling (Tr), Tie-upᵀ (Tuᵀ), \
+mathMode_instruct_3="Note: Do not worry if you compute the wrong answer! The system will highlight the incorrect positions in the matrix for you to focus in on.\n"
+
+mathMode_instruct_4="\nThe diagram above highlights the overall matrix multiplication between the Treadling (Tr), Tie-upᵀ (Tuᵀ), \
 \nand Threading (Th) matracies, respectively. The next page of math mode will specifically focus on the multiplication between \
 \nthe Threading (Th) and Tie-upᵀ (Tuᵀ) matracies, resulting in a Product (P) matrix. The second page will highlight the multiplication\
 \nbetween this Product (P) matrix and the Treadling (Tr) to compute the Drawdown (D) matrix.\n"

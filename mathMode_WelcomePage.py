@@ -30,8 +30,9 @@ class MathMode_WelcomePage(tk.Frame):
       label_instr    = tk.Label(self, text=mathMode_instruct, font="Helvetica 12").pack()
       label_instr    = tk.Label(self, text="Math Mode Instructions", font="Helvetica 14 bold underline").pack()
       label_instr_2  = tk.Label(self, text=mathMode_instruct_2, font="Helvetica 12").pack()
-      math_label_im1 = tk.Label(self, image=self.math_im1, height=330, width=950).pack()
       label_instr_3  = tk.Label(self, text=mathMode_instruct_3, font="Helvetica 12 italic").pack()
+      math_label_im1 = tk.Label(self, image=self.math_im1, height=330, width=950).pack()
+      label_instr_4  = tk.Label(self, text=mathMode_instruct_4, font="Helvetica 12 italic").pack()
       button_back     = tk.Button(self, text="Back", command=lambda: [controller.show_frame("WeaveFrame1")]).pack()
       button_continue = tk.Button(self, text="Continue", command=lambda: [controller.get_page("MathMode_Page1").init_page(),
                                                                           controller.show_frame("MathMode_Page1")]).pack()

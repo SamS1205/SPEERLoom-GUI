@@ -124,10 +124,10 @@ class WeaveFrame1(tk.Frame):
         self.console_text.itemconfig(self.console_text.size()-7,  bg='light green')
         self.console_text.itemconfig(self.console_text.size()-6,  bg='light green')
         self.console_text.itemconfig(self.console_text.size()-5,  bg='light green')
-        self.console_text.itemconfig(self.console_text.size()-4,  bg='light blue')
-        self.console_text.itemconfig(self.console_text.size()-3,  bg='orange')
-        self.console_text.itemconfig(self.console_text.size()-2,  bg='orange')
-        self.console_text.itemconfig(self.console_text.size()-1,  bg='orange')
+        self.console_text.itemconfig(self.console_text.size()-4,  bg='orange')
+        self.console_text.itemconfig(self.console_text.size()-3,  bg='light blue')
+        self.console_text.itemconfig(self.console_text.size()-2,  bg='light blue')
+        self.console_text.itemconfig(self.console_text.size()-1,  bg='light blue')
     
     def make_menuBar(self):
         self.menu_bar = tk.Menu(self, tearoff=0, background="#d2d7d3")
