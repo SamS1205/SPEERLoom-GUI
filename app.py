@@ -5,12 +5,16 @@ except ImportError:
     import Tkinter as tk     # python 2
     import tkFont as tkfont  # python 2
 
+from constants import *
 from startFrame import StartPage
 from weaveFrame1 import WeaveFrame1
 from calFrame import CalFrame
 from weaveFrame2 import WeaveFrame2
 from fileframe import FileFrame
 from resetFrame import ResetFrame
+from mathMode_WelcomePage import MathMode_WelcomePage
+from mathMode_Page1 import MathMode_Page1
+from mathMode_Page2 import MathMode_Page2
 
 class App(tk.Tk):
 
@@ -33,7 +37,7 @@ class App(tk.Tk):
 
         self.frames = {}
         self.page_names = []
-        for F in (StartPage, CalFrame, WeaveFrame1, WeaveFrame2, FileFrame, ResetFrame):
+        for F in (StartPage, CalFrame, MathMode_WelcomePage, MathMode_Page1, MathMode_Page2, WeaveFrame1, WeaveFrame2, FileFrame, ResetFrame):
             page_name = F.__name__
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
@@ -46,11 +50,30 @@ class App(tk.Tk):
 
         self.show_frame("StartPage")
 
+    def get_page(self, page_class):
+       return self.frames[page_class]
+
     def show_frame(self, page_name):
         '''Show a frame for the given page name'''
         frame = self.frames[page_name]
         frame.tkraise()
         self.geometry(frame.geo)
+
+        if page_name == "MathMode_WelcomePage":
+            frame.controller.maxsize(mathMode_width,mathMode_height)
+            frame.controller.resizable(0,0)
+        elif page_name == "MathMode_Page1" or page_name == "MathMode_Page2":
+            frame.controller.maxsize(mathMode_width,mathMode_height_2)
+            frame.controller.resizable(0,0)
+        elif page_name == "StartPage": 
+            frame.controller.maxsize(start_width,start_height)
+            frame.controller.resizable(0,0)
+        elif page_name == "ResetFrame": 
+            frame.controller.maxsize(reset_width,reset_height)
+            frame.controller.resizable(0,0)
+        else:
+            frame.controller.maxsize(1920,1080)
+            frame.controller.resizable(1,1)
 
     def resize(self, event):
         for page_name in self.page_names:
