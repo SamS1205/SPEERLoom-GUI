@@ -1,0 +1,13 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Speer"
+  given-names: "Samantha"
+  orcid: "https://orcid.org/0000-0002-5239-4449"
+- family-names: "Scott"
+  given-names: "Will"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "SPEERLoom GUI"
+version: 1.0.0
+date-released: 2023-09-26
+url: "https://github.com/SamS1205/SPEERLoom-GUI"
