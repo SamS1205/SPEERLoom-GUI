@@ -19,7 +19,7 @@ class CalFrame(tk.Frame):
         self.controller = controller
         self.geo = str(cal_width) + "x" + str(cal_height)
 
-        label = tk.Label(self, text="RoboLoom Calibration", font=controller.title_font)
+        label = tk.Label(self, text="SPEERLoom Calibration", font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
 
         instr = tk.Label(self, text="When beginning to weave for the first time, the motors need to start all in the "
