@@ -11,7 +11,8 @@ ports = serial.tools.list_ports.comports()
 print(ports)
 port_names = []
 for port, desc, hwid in sorted(ports):
-    if "arduino" in desc:
+    print(desc)
+    if "arduino" in desc.lower():
         port_names.append(port)
 print(port_names)
 for port in port_names:
