@@ -24,7 +24,7 @@ treadling_1_color = "#98c997"
 pattern_0_color = "white"
 pattern_1_color = "black"
 
-
+#SHAFT LOOM WEAVING
 class WeaveFrame1(tk.Frame):
 
     def __init__(self, parent, controller):

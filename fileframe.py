@@ -43,6 +43,7 @@ class FileFrame(tk.Frame):
                                         command=lambda: calc_weave_factor(self.pattern, self.rows, self.cols, self.pat_canvas, self.m1, self.m2))
 
         #message = "G:\Shared drives\SHRED Lab\ActiveStudentsResearchFolders\SamSpeer_ResearchFolder\Projects\RoboLoom\Weaving Patterns\star_trek_pattern.csv"
+        #H:\Shared drives\SHRED Lab\ActiveStudentsResearchFolders\SamSpeer_ResearchFolder\Projects\SpeerLoom\Weaving Patterns\large_loom_plain_weave.csv
         message = "your_path\your_file.csv"
         self.text_box = tk.Text(self,height=2,width=100,wrap='word'
         )
