@@ -6,6 +6,8 @@ except ImportError:
     import tkFont as tkfont  # python 2
 import numpy as np
 from serialCom import move_row
+import matplotlib.pyplot as plt
+from skimage.color import rgb2gray
 
 weave1_width = 1500
 weave1_height = 800
@@ -43,6 +45,7 @@ class FileFrame(tk.Frame):
                                         command=lambda: calc_weave_factor(self.pattern, self.rows, self.cols, self.pat_canvas, self.m1, self.m2))
 
         #message = "G:\Shared drives\SHRED Lab\ActiveStudentsResearchFolders\SamSpeer_ResearchFolder\Projects\RoboLoom\Weaving Patterns\star_trek_pattern.csv"
+        #H:\Shared drives\SHRED Lab\ActiveStudentsResearchFolders\SamSpeer_ResearchFolder\Projects\SpeerLoom\Weaving Patterns\large_loom_plain_weave.csv
         message = "your_path\your_file.csv"
         self.text_box = tk.Text(self,height=2,width=100,wrap='word'
         )
@@ -92,7 +95,12 @@ class FileFrame(tk.Frame):
 
     def show_file(self):
         file = self.text_box.get("1.0","end-1c")
-        self.pattern = np.genfromtxt(file, delimiter=',', dtype=int)
+
+        if ".csv" in file:
+            self.pattern = np.genfromtxt(file, delimiter=',', dtype=int)
+        else:
+            img = plt.imread(file)[:,0:40,0:3]
+            self.pattern = (rgb2gray(img)>0.5).astype(int)
         self.cols = len(self.pattern[0])
         self.rows = len(self.pattern)
 

@@ -88,7 +88,7 @@ def write_read_frameConfig(motor_list_string):
 def write_read(x):
     print("sent: " + x)
     arduino.write(bytes(x+"\n", 'utf-8'))
-    #time.sleep(0.1)
+    time.sleep(0.1)
     data = ""
     while arduino.in_waiting:
         data += str(arduino.readline()) + "\n"
