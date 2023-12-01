@@ -66,11 +66,20 @@ class App(tk.Tk):
             frame.controller.maxsize(mathMode_width,mathMode_height_2)
             frame.controller.resizable(0,0)
         elif page_name == "StartPage": 
+            frame.controller.minsize(start_width,start_height)
             frame.controller.maxsize(start_width,start_height)
             frame.controller.resizable(0,0)
         elif page_name == "ResetFrame": 
             frame.controller.maxsize(reset_width,reset_height)
             frame.controller.resizable(0,0)
+        elif page_name == "CalFrame":
+            frame.controller.minsize(cal_min_width,cal_min_height)
+            frame.controller.maxsize(cal_width,cal_height)
+            frame.controller.resizable(1,1)
+        elif page_name == 'WeaveFrame1':
+            frame.controller.minsize(weave1_width,weave1_height)
+            frame.controller.maxsize(1920,1080) 
+            frame.controller.resizable(1,1)         
         else:
             frame.controller.maxsize(1920,1080)
             frame.controller.resizable(1,1)
