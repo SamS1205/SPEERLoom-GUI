@@ -21,6 +21,10 @@ start_width       = 300
 start_height      = 250
 reset_width       = 350
 reset_height      = 200
+cal_min_width     = 1100
+cal_min_height    = 500
+cal_width         = 1550
+cal_height        = 700
 
 console_color = "#d2d7d3"
 label_color   = "#F0F0F0"

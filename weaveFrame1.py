@@ -494,10 +494,25 @@ class WeaveFrame1(tk.Frame):
 
         print("FRAMES")
 
-    def set_pedals(self):
-        self.controller.num_pedals = int(self.text_box_pedals.get("1.0", "end-1c"))
+    def set_pedals(self):        
+        # Check Max/Min Frames Check
+        input_pedals = int(self.text_box_pedals.get("1.0", "end-1c"))
+        if input_pedals < 2:
+            msg = "ERROR: Be careful, the SPEERLoom only supports a minimum of " + str(MIN_PEDALS) + " pedals."
+            self.console_text.insert(tk.END, msg)
+            self.console_text.itemconfig(self.console_text.size() - 1, foreground='red')
+            self.console_text.itemconfig(self.console_text.size() - 1, bg='pink')
+            return
+        elif input_pedals > 8:
+            msg = "ERROR: Be careful, the SPEERLoom only supports a maximum of " + str(MAX_PEDALS) + " frames."
+            self.console_text.insert(tk.END, msg)
+            self.console_text.itemconfig(self.console_text.size() - 1, foreground='red')
+            self.console_text.itemconfig(self.console_text.size() - 1, bg='pink')
+            return
+        else:
+            self.controller.num_pedals = input_pedals
+        
         # remake the tie_up and treadling canvas
-
         self.tieup_canvas.delete("all")
         self.tieup_canvas.config(height=(block_size + buffer) * self.controller.num_frames,
                                  width=(block_size + buffer) * self.controller.num_pedals + buffer)
